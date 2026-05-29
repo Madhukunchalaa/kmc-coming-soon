@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KrissMaagiic Crystals – Our cosmic portal is opening soon. Energised, authentic, and intuitively selected premium crystals and spiritual services." />
+  <title>KrissMaagiic Crystals | Coming Soon</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts: Cinzel & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Outfit:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #070414;
+      --text-gold: #f59e0b;
+      --text-gold-light: #fef3c7;
+      --accent-color: #8b5cf6;
+      --accent-pink: #ec4899;
+      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.06);
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Cosmic Aura Background */
+    .cosmic-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(124, 58, 237, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(7, 4, 20, 1) 0%, #03020a 100%);
+    }
+
+    /* Star Particle Canvas */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Constellation background */
+    .constellation-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" opacity="0.04"><circle cx="150" cy="200" r="1" fill="white"/><circle cx="180" cy="240" r="1.5" fill="white"/><line x1="150" y1="200" x2="180" y2="240" stroke="white" stroke-width="0.3"/><circle cx="800" cy="150" r="1" fill="white"/><circle cx="850" cy="190" r="1.2" fill="white"/><line x1="800" y1="150" x2="850" y2="190" stroke="white" stroke-width="0.3"/></svg>');
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header / Logo */
+    header {
+      padding: 2.5rem 1.5rem 1rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .logo-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .logo-glow-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(8px);
+      z-index: -1;
+      animation: pulseGlowRing 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlowRing {
+      0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.8; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    }
+
+    .logo-ring-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      width: 100px;
+      height: 100px;
+      z-index: -1;
+      animation: spinLogoRing 40s linear infinite;
+    }
+
+    @keyframes spinLogoRing {
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .brand-logo {
+      max-width: 80px;
+      height: auto;
+      filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.5));
+      transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: 50%;
+      background: rgba(7, 4, 20, 0.6);
+      padding: 5px;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      letter-spacing: 5px;
+      font-size: 2rem;
+      background: linear-gradient(to right, #ffffff, #fef3c7, #f59e0b, #fef3c7, #ffffff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineText 8s linear infinite;
+      margin-top: 0.5rem;
+    }
+
+    @keyframes shineText {
+      to { background-position: 200% center; }
+    }
+
+    .brand-tagline {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 0.2rem;
+      font-weight: 300;
+    }
+
+    /* Main Content */
+    .main-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Rotating Jathaka Chakra in Background */
+    .cosmic-chakra-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      z-index: -1;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .chakra-layer-outer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: rotateClockwise 100s linear infinite;
+    }
+
+    .chakra-layer-middle {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      animation: rotateCounterClockwise 75s linear infinite;
+    }
+
+    .chakra-layer-inner {
+      position: absolute;
+      top: 22.5%;
+      left: 22.5%;
+      width: 55%;
+      height: 55%;
+      animation: rotateClockwise 50s linear infinite;
+    }
+
+    @keyframes rotateClockwise {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes rotateCounterClockwise {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .cosmic-chakra-container {
+        width: 350px;
+        height: 350px;
+      }
+    }
+
+    /* Unique Astrological Tarot Card layout for "Coming Soon" */
+    .tarot-card-container {
+      max-width: 360px;
+      margin: 0 auto 3rem;
+      perspective: 1000px;
+      animation: hoverCard 6s ease-in-out infinite;
+    }
+
+    @keyframes hoverCard {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+
+    .tarot-card {
+      background: rgba(10, 6, 26, 0.65);
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      padding: 2.5rem 1.8rem;
+      position: relative;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(245, 158, 11, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      transition: all 0.5s ease;
+    }
+
+    .tarot-card:hover {
+      border-color: rgba(245, 158, 11, 0.85);
+      box-shadow: 
+        0 20px 45px rgba(139, 92, 246, 0.25),
+        0 0 35px rgba(245, 158, 11, 0.25);
+    }
+
+    /* Decorative border corners */
+    .tarot-card::before, .tarot-card::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--text-gold);
+    }
+    /* Top Left & Right Corners */
+    .tarot-card::before {
+      top: 8px;
+      left: 8px;
+      border-right: none;
+      border-bottom: none;
+    }
+    /* Bottom Right & Left Corners */
+    .tarot-card::after {
+      bottom: 8px;
+      right: 8px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .tarot-card-corner-tr, .tarot-card-corner-bl {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--text-gold);
+    }
+    .tarot-card-corner-tr {
+      top: 8px;
+      right: 8px;
+      border-left: none;
+      border-bottom: none;
+    }
+    .tarot-card-corner-bl {
+      bottom: 8px;
+      left: 8px;
+      border-right: none;
+      border-top: none;
+    }
+
+    /* Tarot Content */
+    .tarot-header {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--text-gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .tarot-illustration {
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    /* Moon phase drawing and crystal illustration in card */
+    .crystal-art-svg {
+      width: 90px;
+      height: 90px;
+      filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.6));
+      animation: pulseCrystal 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseCrystal {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.6)); }
+      50% { transform: scale(1.08); filter: drop-shadow(0 0 20px rgba(236, 72, 153, 0.8)); }
+    }
+
+    .tarot-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #ffffff;
+      margin: 1.2rem 0 0.4rem;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    }
+
+    .tarot-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: var(--text-gold-light);
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      opacity: 0.8;
+    }
+
+    .tarot-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--text-gold), transparent);
+      margin: 0 auto 1.5rem;
+    }
+
+    .tarot-footer {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* Social Connect Icons */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon-btn:hover {
+      background: var(--text-gold);
+      color: #070414;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.35);
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      letter-spacing: 1px;
+    }
+
+    /* Floating Astrological Chat Button (WhatsApp) */
+    .floating-astrology-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 9999;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .whatsapp-trigger-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.3rem;
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .astrology-wheel-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      animation: spinChakraWheel 25s linear infinite;
+      pointer-events: none;
+      transition: all 0.5s ease;
+      filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.4));
+    }
+
+    @keyframes spinChakraWheel {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .floating-astrology-btn:hover .whatsapp-trigger-btn {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(219, 39, 119, 0.6);
+      background: linear-gradient(135deg, #f59e0b 0%, #db2777 100%);
+    }
+
+    .floating-astrology-btn:hover .astrology-wheel-container {
+      animation-duration: 10s;
+      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
+    }
+
+    /* Tooltip */
+    .btn-tooltip {
+      position: absolute;
+      right: 90px;
+      background: rgba(7, 4, 20, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      color: #ffffff;
+      white-space: nowrap;
+      border-radius: 0;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .floating-astrology-btn:hover .btn-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cosmic-bg"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="constellation-overlay"></div>
+
+  <!-- Header with highlighted brand logo -->
+  <header class="text-center">
+    <div class="logo-container">
+      <div class="logo-glow-ring"></div>
+      <svg class="logo-ring-svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.6" stroke-dasharray="4 3" />
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#8b5cf6" stroke-width="0.3" opacity="0.4" />
+        <circle cx="50" cy="4" r="1.5" fill="#f59e0b" />
+      </svg>
+      <img src="https://krissmaagiiccrystals.com/wp-content/uploads/2026/01/site-logo.webp" alt="KrissMaagiic Crystals Logo" class="brand-logo" />
+    </div>
+    <div class="brand-name">KrissMaagiic</div>
+    <div class="brand-tagline">Crystals &amp; Healing</div>
+  </header>
+
+  <!-- Cosmic Rotating Jathaka Chakra in Background -->
+  <div class="main-container">
+    <div class="cosmic-chakra-container">
+      <!-- Outer Layer: Jathaka Chakra structure -->
+      <div class="chakra-layer-outer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+          <circle cx="100" cy="100" r="96" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.4" />
+          <circle cx="100" cy="100" r="88" fill="none" stroke="#f59e0b" stroke-width="0.3" stroke-dasharray="3 3" opacity="0.3" />
+          <line x1="100" y1="4" x2="100" y2="196" stroke="#f59e0b" stroke-width="0.3" opacity="0.3" />
+          <line x1="4" y1="100" x2="196" y2="100" stroke="#f59e0b" stroke-width="0.3" opacity="0.3" />
+          <line x1="32.5" y1="32.5" x2="167.5" y2="167.5" stroke="#f59e0b" stroke-width="0.3" opacity="0.3" />
+          <line x1="32.5" y1="167.5" x2="167.5" y2="32.5" stroke="#f59e0b" stroke-width="0.3" opacity="0.3" />
+          
+          <circle cx="100" cy="4" r="2.5" fill="#f59e0b" opacity="0.7" />
+          <circle cx="196" cy="100" r="2.5" fill="#f59e0b" opacity="0.7" />
+          <circle cx="100" cy="196" r="2.5" fill="#f59e0b" opacity="0.7" />
+          <circle cx="4" cy="100" r="2.5" fill="#f59e0b" opacity="0.7" />
+        </svg>
+      </div>
+
+      <!-- Middle Layer: Planetary Orbits and planets -->
+      <div class="chakra-layer-middle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+          <circle cx="100" cy="100" r="75" fill="none" stroke="#8b5cf6" stroke-width="0.4" opacity="0.3" />
+          <circle cx="100" cy="100" r="55" fill="none" stroke="#ec4899" stroke-width="0.4" opacity="0.2" />
+          
+          <!-- Glowing planets -->
+          <circle cx="100" cy="25" r="4.5" fill="#f59e0b" />
+          <circle cx="100" cy="25" r="8" fill="none" stroke="#f59e0b" stroke-width="0.5" opacity="0.4" />
+          <circle cx="45" cy="145" r="3.5" fill="#ec4899" />
+          <circle cx="155" cy="135" r="2.5" fill="#10b981" />
+        </svg>
+      </div>
+
+      <!-- Inner Layer: Star Octagram -->
+      <div class="chakra-layer-inner">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+          <circle cx="100" cy="100" r="45" fill="none" stroke="#fef3c7" stroke-width="0.5" opacity="0.3" />
+          <circle cx="100" cy="100" r="20" fill="none" stroke="#f59e0b" stroke-width="0.4" opacity="0.4" />
+          <polygon points="100,55 113,87 145,100 113,113 100,145 87,113 55,100 87,87" fill="none" stroke="#fef3c7" stroke-width="0.4" opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Unique Astrological Tarot Card highlighting "Coming Soon" / "Opening" -->
+    <div class="tarot-card-container">
+      <div class="tarot-card">
+        <div class="tarot-card-corner-tr"></div>
+        <div class="tarot-card-corner-bl"></div>
+        
+        <div class="tarot-header">Arcana No. XXII</div>
+        
+        <div class="tarot-illustration">
+          <!-- Mystical Crystal Cluster + Moon Phases SVG Artwork -->
+          <svg class="crystal-art-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Moon Crescent Left -->
+            <path d="M30,50 A15,15 0 0,1 45,35 A20,20 0 0,0 35,50 A20,20 0 0,0 45,65 A15,15 0 0,1 30,50 Z" fill="#8b5cf6" opacity="0.7"/>
+            <!-- Moon Crescent Right -->
+            <path d="M70,50 A15,15 0 0,0 55,35 A20,20 0 0,1 65,50 A20,20 0 0,1 55,65 A15,15 0 0,0 70,50 Z" fill="#8b5cf6" opacity="0.7"/>
+            
+            <!-- Central Crystal Point (Geometric) -->
+            <polygon points="50,22 62,48 50,82 38,48" fill="url(#crystalGrad)" stroke="#fef3c7" stroke-width="1" />
+            <polygon points="50,22 50,82 38,48" fill="rgba(255, 255, 255, 0.15)" stroke="none" />
+            
+            <!-- Small side crystals -->
+            <polygon points="38,48 45,55 35,76 28,60" fill="url(#crystalGrad2)" stroke="#fef3c7" stroke-width="0.8" />
+            <polygon points="62,48 55,55 65,76 72,60" fill="url(#crystalGrad2)" stroke="#fef3c7" stroke-width="0.8" />
+
+            <!-- Sparkling gold stars -->
+            <polygon points="50,12 52,17 57,19 52,21 50,26 48,21 43,19 48,17" fill="#f59e0b" />
+            <polygon points="25,32 26,35 29,36 26,37 25,40 24,37 21,36 24,35" fill="#f59e0b" opacity="0.8"/>
+            <polygon points="75,32 76,35 79,36 76,37 75,40 74,37 71,36 74,35" fill="#f59e0b" opacity="0.8"/>
+            
+            <!-- Gradients Definition -->
+            <defs>
+              <linearGradient id="crystalGrad" x1="50" y1="22" x2="50" y2="82" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#fef3c7" />
+                <stop offset="50%" stop-color="#8b5cf6" />
+                <stop offset="100%" stop-color="#ec4899" />
+              </linearGradient>
+              <linearGradient id="crystalGrad2" x1="50" y1="48" x2="50" y2="76" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#7c3aed" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        
+        <div class="tarot-title">THE PORTAL</div>
+        <div class="tarot-subtitle">Opening Soon</div>
+        
+        <div class="tarot-divider"></div>
+        
+        <div class="tarot-footer">
+          "As the stars align, our sacred sanctuary of intuitively selected, energised crystals and spiritual healing services prepares to manifest."
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Connect Icons -->
+    <div class="social-links">
+      <a href="https://www.instagram.com/krissmaagiic_crystals/" target="_blank" class="social-icon-btn" title="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="mailto:info@krissmaagiiccrystals.com" class="social-icon-btn" title="Email Us">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+      <a href="https://krissmaagiiccrystals.com/wp-content/uploads/2026/01/site-logo.webp" target="_blank" class="social-icon-btn" title="Catalogs">
+        <i class="fa-solid fa-gem"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 KrissMaagiic Crystals &amp; Healing. Intuitively Selected, Energised &amp; Authentic.
+  </footer>
+
+  <!-- Floating Mystic WhatsApp Redirect with Rotating Astrology Wheel around it -->
+  <a href="https://wa.me/919100067676" target="_blank" class="floating-astrology-btn" id="whatsapp-portal" aria-label="Connect via WhatsApp">
+    <span class="btn-tooltip">Consult via WhatsApp</span>
+    <div class="astrology-wheel-container">
+      <svg viewBox="0 0 100 100" width="100%" height="100%">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#f59e0b" stroke-width="1" />
+        <circle cx="50" cy="50" r="41" fill="none" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="3 2" />
+        
+        <line x1="50" y1="4" x2="50" y2="96" stroke="#f59e0b" stroke-width="0.5" opacity="0.8" />
+        <line x1="4" y1="50" x2="96" y2="50" stroke="#f59e0b" stroke-width="0.5" opacity="0.8" />
+        <line x1="17.5" y1="17.5" x2="82.5" y2="82.5" stroke="#f59e0b" stroke-width="0.4" opacity="0.6" />
+        <line x1="17.5" y1="82.5" x2="82.5" y2="17.5" stroke="#f59e0b" stroke-width="0.4" opacity="0.6" />
+
+        <circle cx="50" cy="5" r="1.5" fill="#f59e0b" />
+        <circle cx="72.5" cy="11" r="1.5" fill="#f59e0b" />
+        <circle cx="89" cy="27.5" r="1.5" fill="#f59e0b" />
+        <circle cx="95" cy="50" r="1.5" fill="#f59e0b" />
+        <circle cx="89" cy="72.5" r="1.5" fill="#f59e0b" />
+        <circle cx="72.5" cy="89" r="1.5" fill="#f59e0b" />
+        <circle cx="50" cy="95" r="1.5" fill="#f59e0b" />
+        <circle cx="27.5" cy="89" r="1.5" fill="#f59e0b" />
+        <circle cx="11" cy="72.5" r="1.5" fill="#f59e0b" />
+        <circle cx="5" cy="50" r="1.5" fill="#f59e0b" />
+        <circle cx="11" cy="27.5" r="1.5" fill="#f59e0b" />
+        <circle cx="27.5" cy="11" r="1.5" fill="#f59e0b" />
+      </svg>
+    </div>
+    <div class="whatsapp-trigger-btn">
+      <i class="fa-solid fa-hand-holding-sparkles"></i>
+    </div>
+  </a>
+
+  <!-- Star Particle System Javascript -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    const maxParticles = 100;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.15;
+        this.speedY = -Math.random() * 0.25 - 0.05;
+        this.alpha = Math.random() * 0.7 + 0.3;
+        this.fadeSpeed = Math.random() * 0.004 + 0.001;
+        this.color = Math.random() > 0.75 ? '#f59e0b' : '#a78bfa';
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.alpha -= this.fadeSpeed;
+
+        if (this.y < 0 || this.alpha <= 0 || this.x < 0 || this.x > canvas.width) {
+          this.reset();
+          this.y = canvas.height;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < maxParticles; i++) {
+      particles.push(new Particle());
+      particles[i].y = Math.random() * canvas.height;
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
