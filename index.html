@@ -262,7 +262,7 @@
 
     /* Clean Frameless Hero Elements */
     .hero-manifestation {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       position: relative;
     }
 
@@ -296,17 +296,91 @@
       50% { transform: translateY(-10px) scale(1.06); filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.7)); }
     }
 
-    /* Highlighted "COMING SOON" text */
-    .manifesting-tag {
+    /* Unique "Launching Soon" Pill Badge Button on Top */
+    .launch-btn-wrapper {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-launch-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 8px 24px;
+      border-radius: 50px;
+      color: #ffffff;
       font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      letter-spacing: 6px;
-      color: var(--text-gold);
-      text-transform: uppercase;
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
-      display: inline-block;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Shimmer sweep effect */
+    .btn-launch-soon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+      );
+      transform: skewX(-25deg);
+      animation: btnShimmer 5s infinite ease-in-out;
+    }
+
+    @keyframes btnShimmer {
+      0% { left: -100%; }
+      30%, 100% { left: 200%; }
+    }
+
+    .btn-launch-soon:hover {
+      border-color: var(--text-gold);
+      color: var(--text-gold-light);
+      box-shadow: 
+        0 0 20px rgba(245, 158, 11, 0.3),
+        0 4px 20px rgba(124, 58, 237, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-launch-soon i.magic-spark {
+      color: var(--text-gold);
+      font-size: 0.8rem;
+      animation: rotateSpark 3s linear infinite;
+    }
+
+    @keyframes rotateSpark {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .btn-launch-soon i.arrow-spark {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .btn-launch-soon:hover i.arrow-spark {
+      transform: translateX(4px);
+      color: var(--text-gold);
     }
 
     h1.coming-title {
@@ -555,6 +629,15 @@
       </div>
     </div>
 
+    <!-- Unique Glassmorphic "Launching Soon" Button/Badge on Top -->
+    <div class="launch-btn-wrapper">
+      <a href="#" class="btn-launch-soon">
+        <i class="fa-solid fa-wand-magic-sparkles magic-spark"></i>
+        <span>Launching Soon</span>
+        <i class="fa-solid fa-chevron-right arrow-spark"></i>
+      </a>
+    </div>
+
     <!-- Floating crystal cluster artwork directly on background -->
     <div class="hero-manifestation">
       <div class="crystal-halo"></div>
@@ -594,8 +677,6 @@
     </div>
 
     <!-- Centered direct text content -->
-    <div class="manifesting-tag">The Manifestation is Near</div>
-    
     <h1 class="coming-title">Crystals That Speak<br>To Your Soul Are Aligning</h1>
     
     <div class="astrological-divider">
