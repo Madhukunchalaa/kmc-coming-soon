@@ -474,90 +474,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.03);
       letter-spacing: 1px;
     }
-
-    /* Floating Astrological Chat Button (WhatsApp) */
-    .floating-astrology-btn {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 9999;
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .whatsapp-trigger-btn {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      font-size: 1.3rem;
-      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      z-index: 2;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    .astrology-wheel-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      animation: spinChakraWheel 25s linear infinite;
-      pointer-events: none;
-      transition: all 0.5s ease;
-      filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.4));
-    }
-
-    @keyframes spinChakraWheel {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .floating-astrology-btn:hover .whatsapp-trigger-btn {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(219, 39, 119, 0.6);
-      background: linear-gradient(135deg, #f59e0b 0%, #db2777 100%);
-    }
-
-    .floating-astrology-btn:hover .astrology-wheel-container {
-      animation-duration: 10s;
-      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.7));
-    }
-
-    /* Tooltip */
-    .btn-tooltip {
-      position: absolute;
-      right: 90px;
-      background: rgba(5, 3, 12, 0.95);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 6px 14px;
-      font-size: 0.75rem;
-      color: #ffffff;
-      white-space: nowrap;
-      border-radius: 0;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateX(10px);
-      transition: all 0.3s ease;
-      font-weight: 600;
-      letter-spacing: 1px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    }
-
-    .floating-astrology-btn:hover .btn-tooltip {
-      opacity: 1;
-      transform: translateX(0);
-    }
   </style>
 </head>
 <body>
@@ -707,38 +623,6 @@
   <footer>
     &copy; 2026 KrissMaagiic Crystals &amp; Healing. Intuitively Selected, Energised &amp; Authentic.
   </footer>
-
-  <!-- Floating Mystic WhatsApp Redirect with Rotating Astrology Wheel around it -->
-  <a href="https://wa.me/919100067676" target="_blank" class="floating-astrology-btn" id="whatsapp-portal" aria-label="Connect via WhatsApp">
-    <span class="btn-tooltip">Consult via WhatsApp</span>
-    <div class="astrology-wheel-container">
-      <svg viewBox="0 0 100 100" width="100%" height="100%">
-        <circle cx="50" cy="50" r="46" fill="none" stroke="#f59e0b" stroke-width="1" />
-        <circle cx="50" cy="50" r="41" fill="none" stroke="#f59e0b" stroke-width="0.5" stroke-dasharray="3 2" />
-        
-        <line x1="50" y1="4" x2="50" y2="96" stroke="#f59e0b" stroke-width="0.5" opacity="0.8" />
-        <line x1="4" y1="50" x2="96" y2="50" stroke="#f59e0b" stroke-width="0.5" opacity="0.8" />
-        <line x1="17.5" y1="17.5" x2="82.5" y2="82.5" stroke="#f59e0b" stroke-width="0.4" opacity="0.6" />
-        <line x1="17.5" y1="82.5" x2="82.5" y2="17.5" stroke="#f59e0b" stroke-width="0.4" opacity="0.6" />
-
-        <circle cx="50" cy="5" r="1.5" fill="#f59e0b" />
-        <circle cx="72.5" cy="11" r="1.5" fill="#f59e0b" />
-        <circle cx="89" cy="27.5" r="1.5" fill="#f59e0b" />
-        <circle cx="95" cy="50" r="1.5" fill="#f59e0b" />
-        <circle cx="89" cy="72.5" r="1.5" fill="#f59e0b" />
-        <circle cx="72.5" cy="89" r="1.5" fill="#f59e0b" />
-        <circle cx="50" cy="95" r="1.5" fill="#f59e0b" />
-        <circle cx="27.5" cy="89" r="1.5" fill="#f59e0b" />
-        <circle cx="11" cy="72.5" r="1.5" fill="#f59e0b" />
-        <circle cx="5" cy="50" r="1.5" fill="#f59e0b" />
-        <circle cx="11" cy="27.5" r="1.5" fill="#f59e0b" />
-        <circle cx="27.5" cy="11" r="1.5" fill="#f59e0b" />
-      </svg>
-    </div>
-    <div class="whatsapp-trigger-btn">
-      <i class="fa-solid fa-hand-holding-sparkles"></i>
-    </div>
-  </a>
 
   <!-- Star Particle System -->
   <script>
