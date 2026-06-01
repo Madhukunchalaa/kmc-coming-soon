@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAD Tech Solutions & KrissMaagiic Crystals Collaboration Banner</title>
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts: Cinzel, Playfair Display, Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,700&family=Outfit:wght@200;300;400;500;600&family=Monsieur+La+Doulaise&family=Alex+Brush&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #030108;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Outfit', sans-serif;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    /* 1:1 Aspect Ratio Instagram Square Banner */
+    .banner-container {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      background: #04020a;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 90px 70px 70px;
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Cosmic Background Nebulas & Textured Dark Overlay */
+    .banner-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .nebula-purple {
+      position: absolute;
+      top: -150px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.22) 0%, transparent 70%);
+      filter: blur(50px);
+    }
+
+    .nebula-gold {
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+      filter: blur(60px);
+    }
+
+    .nebula-center-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+      filter: blur(40px);
+    }
+
+    /* Fine noise overlay to match the premium textured look */
+    .texture-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+      background-size: 24px 24px;
+      opacity: 0.25;
+    }
+
+    /* Star particles */
+    .stars-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(1px 1px at 100px 150px, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 300px 750px, rgba(245, 158, 11, 0.6), transparent),
+        radial-gradient(1px 1px at 850px 220px, #fff, transparent),
+        radial-gradient(2px 2px at 700px 900px, rgba(139, 92, 246, 0.5), transparent),
+        radial-gradient(1px 1px at 920px 600px, #fff, transparent);
+      z-index: 2;
+    }
+
+    .content-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* =====================================================
+       TOP SECTION: BRAND LOGOS
+       ===================================================== */
+    .top-brand-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+    }
+
+    /* Logo 1: MAD Tech Solutions Logo Image */
+    .madtech-logo-img {
+      width: 250px;
+      height: auto;
+    }
+
+    /* Vertical Divider */
+    .vertical-brand-divider {
+      height: 80px;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.25) 50%, transparent);
+    }
+
+    /* Logo 2: KrissMaagiic Crystals actual logo */
+    .kriss-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .kriss-logo-img {
+      width: 72px;
+      height: 72px;
+      filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.35));
+    }
+
+    .kriss-logo-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .kriss-main-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 3px;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    .kriss-sub-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--text-gold);
+      text-transform: uppercase;
+    }
+
+
+    /* =====================================================
+       MIDDLE SECTION: THE ANNOUNCEMENT
+       ===================================================== */
+    .middle-announcement {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .collab-eyebrow {
+      font-size: 19px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #d1d5db;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    .collab-eyebrow span.gold-highlight {
+      color: var(--text-gold);
+      font-weight: 600;
+      letter-spacing: 8px;
+    }
+
+    .main-announcement-title {
+      position: relative;
+    }
+
+    .title-something {
+      font-family: 'Cinzel', serif;
+      font-size: 96px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    /* Handdrawn aesthetic script typography for "Beautiful" or "Magical" */
+    .title-magical {
+      font-family: 'Alex Brush', cursive;
+      font-size: 135px;
+      color: var(--text-gold);
+      line-height: 0.6;
+      margin: 10px 0 15px;
+      text-shadow: 0 0 30px rgba(245, 158, 11, 0.25);
+    }
+
+    .title-making {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    /* Decorative Gold Bracket Ornaments */
+    .title-bracket-top-left {
+      position: absolute;
+      top: -10px;
+      left: -20px;
+      width: 40px;
+      height: 40px;
+      border-top: 3px solid var(--text-gold);
+      border-left: 3px solid var(--text-gold);
+      opacity: 0.7;
+    }
+
+    .title-bracket-bottom-right {
+      position: absolute;
+      bottom: -10px;
+      right: -20px;
+      width: 40px;
+      height: 40px;
+      border-bottom: 3px solid var(--text-gold);
+      border-right: 3px solid var(--text-gold);
+      opacity: 0.7;
+    }
+
+
+    /* =====================================================
+       LOWER SECTION: EXPERIENCES PILL BAR
+       ===================================================== */
+    .experiences-pill-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: rgba(10, 6, 26, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 22px 50px;
+      border-radius: 0px; /* Sharp premium edges */
+      max-width: 650px;
+      margin: 0 auto 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .pill-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .pill-icon {
+      color: var(--text-gold);
+      font-size: 22px;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+    }
+
+    .pill-icon-blue {
+      color: #38bdf8;
+      font-size: 20px;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    }
+
+    .pill-text {
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    .pill-plus-sign {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+
+    /* =====================================================
+       FOOTER SECTION: LAUNCH DATE & SOCIALS
+       ===================================================== */
+    .footer-section {
+      width: 100%;
+      text-align: center;
+    }
+
+    .launch-tagline {
+      font-size: 16px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .launch-tagline::before, .launch-tagline::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    }
+
+    .launch-tagline span.gold-highlight {
+      color: var(--text-gold);
+      font-weight: 600;
+      letter-spacing: 12px;
+    }
+
+    /* Social row under */
+    .social-bottom-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      font-size: 14px;
+      color: #9ca3af;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 25px;
+      width: 100%;
+      letter-spacing: 1px;
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #9ca3af;
+    }
+
+    .social-item i {
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1080x1080 Instagram Square Banner Box -->
+  <div class="banner-container">
+    <div class="banner-bg">
+      <div class="nebula-purple"></div>
+      <div class="nebula-gold"></div>
+      <div class="nebula-center-glow"></div>
+      <div class="texture-overlay"></div>
+      <div class="stars-glow"></div>
+    </div>
+
+    <div class="content-wrapper">
+      
+      <!-- TOP: Brand Logos -->
+      <div class="top-brand-row">
+        <!-- Logo 1: MAD Tech Solutions -->
+        <div class="madtech-logo-container" style="display: flex; align-items: center; gap: 20px;">
+          <!-- Vector Logo Mark -->
+          <svg style="width: 100px; height: auto;" viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="blueChevronGrad" x1="160" y1="55" x2="160" y2="125" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00c2ff" />
+                <stop offset="100%" stop-color="#004ae2" />
+              </linearGradient>
+              <linearGradient id="codeBracketsGrad" x1="160" y1="20" x2="160" y2="45" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00c2ff" />
+                <stop offset="100%" stop-color="#0072ff" />
+              </linearGradient>
+            </defs>
+            <!-- Code Brackets </ > -->
+            <path d="M 164,20 L 154,42" stroke="url(#codeBracketsGrad)" stroke-width="4.5" stroke-linecap="round" />
+            <path d="M 144,24 L 134,31 L 144,38" fill="none" stroke="url(#codeBracketsGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 176,24 L 186,31 L 176,38" fill="none" stroke="url(#codeBracketsGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+            <!-- 'M' Letter -->
+            <path d="M 35,55 H 56 L 76,102 L 96,55 H 117 V 125 H 99 V 80 L 76,125 L 53,80 V 125 H 35 Z" fill="#ffffff" />
+            <!-- 'A' Chevron -->
+            <path d="M 160,57 L 203,125 H 180 L 160,93 L 140,125 H 117 Z" fill="url(#blueChevronGrad)" />
+            <path d="M 160,111 L 167,122 H 153 Z" fill="#004ae2" />
+            <!-- 'D' Letter (Stencil Style) -->
+            <path d="M 207,55 H 223 V 125 H 207 Z" fill="#ffffff" />
+            <path d="M 233,55 H 252 A 35,35 0 0,1 287,90 A 35,35 0 0,1 252,125 H 233 V 107 H 252 A 17,17 0 0,0 269,90 A 17,17 0 0,0 252,73 H 233 Z" fill="#ffffff" />
+          </svg>
+          <!-- HTML Text Name Beside it -->
+          <div class="madtech-logo-text" style="display: flex; flex-direction: column; text-align: left;">
+            <span class="mad-main-name" style="font-size: 26px; font-weight: 800; letter-spacing: 4px; color: #ffffff; line-height: 1.1;">MAD</span>
+            <span class="mad-sub-name" style="font-size: 11px; font-weight: 600; letter-spacing: 2px; color: #38bdf8; text-transform: uppercase;">Tech Solutions</span>
+          </div>
+        </div>
+
+        <!-- Vertical Divider -->
+        <div class="vertical-brand-divider"></div>
+
+        <!-- Logo 2: KrissMaagiic Crystals & Healing -->
+        <div class="kriss-logo-container" style="display: flex; align-items: center; gap: 20px;">
+          <img src="https://krissmaagiiccrystals.com/wp-content/uploads/2026/01/site-logo.webp" alt="KrissMaagiic Logo" class="kriss-logo-img" style="width: 88px; height: 88px;">
+          <div class="kriss-logo-text">
+            <span class="kriss-main-name" style="font-size: 26px;">KrissMaagiic</span>
+            <span class="kriss-sub-name" style="font-size: 11px;">Crystals &amp; Healing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIDDLE: Announcement Title -->
+      <div class="middle-announcement">
+        <p class="collab-eyebrow">We are <span class="gold-highlight">collaborating</span> to create something memorable</p>
+        
+        <div class="main-announcement-title">
+          <div class="title-bracket-top-left"></div>
+          
+          <h2 class="title-something" style="font-size: 80px; letter-spacing: 6px;">Manifesting</h2>
+          <h1 class="title-magical" style="font-size: 145px; margin: 5px 0 10px;">Magic</h1>
+          <h3 class="title-making" style="font-size: 26px; letter-spacing: 8px; color: var(--text-gold);">Engineered by MAD</h3>
+          
+          <div class="title-bracket-bottom-right"></div>
+        </div>
+      </div>
+
+      <!-- BOTTOM MED: Alignment Pill Bar -->
+      <div class="experiences-pill-bar">
+        <div class="pill-item">
+          <i class="fa-solid fa-gem pill-icon"></i>
+          <span class="pill-text" style="color: var(--text-gold-light);">Aligning Energy</span>
+        </div>
+        <div class="pill-plus-sign">+</div>
+        <div class="pill-item">
+          <i class="fa-solid fa-code pill-icon-blue"></i>
+          <span class="pill-text" style="color: #e0f2fe;">Creating Experiences</span>
+        </div>
+      </div>
+
+      <!-- BOTTOM FOOTER: Socials -->
+      <div class="footer-section">
+        <div class="launch-tagline">
+          Something Exceptional <span class="gold-highlight">Launching Soon</span>
+        </div>
+        
+        <div class="social-bottom-row">
+          <a href="https://madtechsolutions.in" target="_blank" class="social-item">
+            <i class="fa-solid fa-globe"></i>
+            <span>madtechsolutions.in</span>
+          </a>
+          <div style="color: #4b5563;">|</div>
+          <a href="https://instagram.com/mad.techsolutions" target="_blank" class="social-item">
+            <i class="fa-brands fa-instagram"></i>
+            <span>@mad.techsolutions</span>
+          </a>
+          <div style="color: #4b5563;">|</div>
+          <a href="https://instagram.com/krissmaagiiccrystals" target="_blank" class="social-item">
+            <i class="fa-brands fa-instagram"></i>
+            <span>@krissmaagiiccrystals</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
