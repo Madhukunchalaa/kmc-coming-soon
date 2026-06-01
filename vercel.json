@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/:path+",
+      "source": "/((?!.*\\.[a-z0-9]{1,5}(?:\\?.*)?$).+)",
       "destination": "/",
       "permanent": true
     }
